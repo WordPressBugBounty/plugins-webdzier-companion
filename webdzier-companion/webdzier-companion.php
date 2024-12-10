@@ -2,7 +2,7 @@
 /*
 Plugin Name: Webdzier Companion
 Description: Enhances webdzier themes with additional functionality.
-Version: 3.2
+Version: 3.3
 Author: webdzier
 Author URI: https://webdzier.com
 Text Domain: webdzier-companion

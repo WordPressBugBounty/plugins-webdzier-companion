@@ -2,8 +2,8 @@
 Contributors: webdzier
 Tags: team section, admin
 Requires at least: 4.0
-Tested up to:  6.6
-Stable tag: 3.2
+Tested up to:  6.7
+Stable tag: 3.3
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -25,6 +25,9 @@ And many more.
 
 
 == Changelog ==
+
+= 3.3 =
+* Tested up to wp 6.7.1
 
 = 3.2 =
 * white Space Remove
