@@ -160,23 +160,23 @@ if(! function_exists('hotelgalaxy_about_customizer')){
 		));
 
 		$wp_customize->add_control(	new Hotelgalaxy_Repeater( $wp_customize,'about_contents', array(	
-				'label'   => esc_html__('About Contents','hotel-galaxy'),
-				'item_name'     => esc_html__( 'Item', 'hotel-galaxy' ),
-				'section' => 'about_section',
-				'priority' => 4,				
-				'customizer_repeater_image_control' => true,
-				'customizer_repeater_title_control' => true,
-				'customizer_repeater_subtitle_control' => false,
-				'customizer_repeater_text_control' => true,
-				'customizer_repeater_link_control' => false,
-				'customizer_repeater_text2_control'=> false,		
-				'customizer_repeater_link2_control' => false,
-				'customizer_repeater_button2_control' => false,
-				'customizer_repeater_slide_align' => false,
-				'customizer_repeater_icon_control' => false,		
-				'customizer_repeater_checkbox_control' => false,									
-			) 
-		) );
+			'label'   => esc_html__('About Contents','hotel-galaxy'),
+			'item_name'     => esc_html__( 'Item', 'hotel-galaxy' ),
+			'section' => 'about_section',
+			'priority' => 4,				
+			'customizer_repeater_image_control' => true,
+			'customizer_repeater_title_control' => true,
+			'customizer_repeater_subtitle_control' => false,
+			'customizer_repeater_text_control' => true,
+			'customizer_repeater_link_control' => false,
+			'customizer_repeater_text2_control'=> false,		
+			'customizer_repeater_link2_control' => false,
+			'customizer_repeater_button2_control' => false,
+			'customizer_repeater_slide_align' => false,
+			'customizer_repeater_icon_control' => false,		
+			'customizer_repeater_checkbox_control' => false,									
+		) 
+	) );
 
 		// add_partial
 		$wp_customize->selective_refresh->add_partial(
@@ -218,17 +218,21 @@ if(! function_exists('hotelgalaxy_about_customizer')){
 		$wp_customize->add_control( 
 			new WP_Customize_Image_Control($wp_customize,'about_image',
 				array(
-					'label'=>__('Image 2','hotel-galaxy'),
+					'label'=>__('Image 1','hotel-galaxy'),
 					'section'=>'about_section',
 					'priority'=>4,					
 				)
 			)
 		);
-
-
+		 $current_theme = wp_get_theme();
+		if ($current_theme->get('Name') === 'HotelPress') {
+			$default_image = esc_url(WEBDZIER_COMPANION_PLUGIN_URL . '/inc/hotelpress/images/about/about-text.png');
+		} else {
+			$default_image = esc_url(WEBDZIER_COMPANION_PLUGIN_URL . '/inc/hotelgalaxy/images/about/about-text.png');
+		}
 		// image 2
 		$wp_customize->add_setting('about_image_2',array(			
-			'default'=> esc_url(WEBDZIER_COMPANION_PLUGIN_URL.'/inc/hotelgalaxy/images/about/about-text.png'),
+			 'default'           => $default_image,
 			'sanitize_callback'=>'esc_url_raw',	
 			'capability'        => 'edit_theme_options'
 		));
@@ -236,7 +240,7 @@ if(! function_exists('hotelgalaxy_about_customizer')){
 		$wp_customize->add_control( 
 			new WP_Customize_Image_Control($wp_customize,'about_image_2',
 				array(
-					'label'=>__('Image 1','hotel-galaxy'),
+					'label'=>__('Image 2','hotel-galaxy'),
 					'section'=>'about_section',
 					'priority'=>4,					
 				)

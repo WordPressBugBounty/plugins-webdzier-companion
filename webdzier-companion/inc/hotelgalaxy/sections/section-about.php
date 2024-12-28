@@ -10,7 +10,12 @@
  		$button_url             = get_theme_mod('about_button_url', '#' ); 
  		$video_url              = get_theme_mod('about_video_url', 'https://www.youtube.com/watch?v=a3ICNMQW7Ok' ); 
  		$image_1              = get_theme_mod('about_image', WEBDZIER_COMPANION_PLUGIN_URL.'/inc/hotelgalaxy/images/about/about-01.jpg' ); 
- 		$image_2              = get_theme_mod('about_image_2',WEBDZIER_COMPANION_PLUGIN_URL.'/inc/hotelgalaxy/images/about/about-text.png' );
+ 		$current_theme = wp_get_theme()->get('Name');
+ 		if ($current_theme === 'HotelPress') {
+ 			$image_2 = get_theme_mod('about_image_2', WEBDZIER_COMPANION_PLUGIN_URL . '/inc/hotelpress/images/about/about-text.png');
+ 		} else {
+ 			$image_2 = get_theme_mod('about_image_2', WEBDZIER_COMPANION_PLUGIN_URL . '/inc/hotelgalaxy/images/about/about-text.png');
+ 		}
  		$about_contents         = get_theme_mod( 'about_contents', hotelgalaxy_get_about_default() );
  		if ( empty( $about_contents ) ) { return; }
  		$about_contents         = json_decode( $about_contents ); 
@@ -52,39 +57,43 @@
  									</div>      
  								</div>
  							<?php } ?>     
-
-
- 							<?php if (!empty($button_text)) { ?>
- 								<a id="read-more" class="btn-theme mt-4 read-more" href="<?php echo esc_html($button_url) ?>" target="_blank"><i class="icon"></i><?php echo esc_html($button_text) ?>&nbsp;&nbsp;<i class="fa fa-long-arrow-right"></i></a>
- 							<?php }  ?>
-
- 						</div>
+ 							<?php if(!empty($button_text)){ ?>
+ 								<a id="read-more" class="btn-theme mt-4 read-more" href="<?php echo esc_url($button_url); ?>" target="_blank">
+ 									<span class="btn-theme-text"><?php echo esc_html($button_text) ?>
+ 								</span> 
+ 								<span class="btn-theme-icon-wrapper">
+ 									<span class="btn-theme-icon">
+ 										<i class="fa fa-long-arrow-right"></i>    
+ 									</span>
+ 								</span>
+ 							</a>
+ 						<?php } ?>
  					</div>
+ 				</div>
+ 				<div class="col-lg-6 wow fadeInRight  ">
+ 					<div class="about-video">
 
- 					<div class="col-lg-6 wow fadeInRight  ">
- 						<div class="about-video">
-
- 							<?php if (!empty($image_2)) { ?>
- 								<div class="about-rotate-box">
- 									<img width="150" height="150" src="<?php echo esc_url($image_2) ?>" alt="Animated Image" data-position="100" class="fa-spin">
- 								</div>
- 							<?php } ?>  
-
- 							<div class="about-video-img">
- 								<?php if (!empty($image_1)) { ?>
- 									<img src="<?php echo esc_url($image_1) ?>" class="img-responsive">
- 								<?php } ?>  
+ 						<?php if (!empty($image_2)) { ?>
+ 							<div class="about-rotate-box">
+ 								<img width="150" height="150" src="<?php echo esc_url($image_2) ?>" alt="Animated Image" data-position="100" class="fa-spin">
  							</div>
+ 						<?php } ?>  
+
+ 						<div class="about-video-img">
+ 							<?php if (!empty($image_1)) { ?>
+ 								<img src="<?php echo esc_url($image_1) ?>" class="img-responsive">
+ 							<?php } ?>  
  						</div>
  					</div>
  				</div>
  			</div>
- 		</section>
+ 		</div>
+ 	</section>
 
- 		<?php 		
- 	}
- endif;
- if ( function_exists( 'webdzier_hotelgalaxy_aboutus' ) ) {
- 	$section_priority = apply_filters( 'hotelgalaxy_section_priority', 12, 'webdzier_hotelgalaxy_aboutus' );
- 	add_action( 'hotelgalaxy_frontpage_sections', 'webdzier_hotelgalaxy_aboutus', absint( $section_priority ) );
+ 	<?php 		
  }
+endif;
+if ( function_exists( 'webdzier_hotelgalaxy_aboutus' ) ) {
+	$section_priority = apply_filters( 'hotelgalaxy_section_priority', 12, 'webdzier_hotelgalaxy_aboutus' );
+	add_action( 'hotelgalaxy_frontpage_sections', 'webdzier_hotelgalaxy_aboutus', absint( $section_priority ) );
+}

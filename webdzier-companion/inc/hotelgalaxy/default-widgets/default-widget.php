@@ -1,6 +1,8 @@
 <?php
-$theme = wp_get_theme(); // gets the current theme
-if( 'Hotel Galaxy' == $theme->name){
+$current_theme = wp_get_theme();
+if ($current_theme->get('Name') === 'HotelPress') {
+	$footer_logo = WEBDZIER_COMPANION_PLUGIN_URL .'inc/hotelpress/images/footer-logo.png';
+}else{
 	$footer_logo = WEBDZIER_COMPANION_PLUGIN_URL .'inc/hotelgalaxy/images/footer-logo.png';
 }
 $activate = array(

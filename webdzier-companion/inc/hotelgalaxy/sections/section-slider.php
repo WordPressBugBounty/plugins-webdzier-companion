@@ -42,44 +42,50 @@
                                  <?php if(!empty($item->text)){ ?>
                                     <p><?php echo esc_html($item->text) ?></p>
                                  <?php } ?>
-
-
                                  <?php if(!empty($item->text2)){ ?>
-                                    <a id="read-more" class="btn-theme" href="<?php echo esc_url($item->link); ?>" target="_self"><?php echo esc_html($item->text2) ?>&nbsp;&nbsp; <i class="fa fa-long-arrow-right"></i> </a>
-                                 <?php } ?>
-                              </div>
-                           <?php } ?>
-                        </div>
+                                    <a id="read-more" class="btn-theme" href="<?php echo esc_url($item->link); ?>" target="_self">
+                                       <span class="btn-theme-text"><?php echo esc_html($item->text2) ?>
+                                    </span> 
+                                    <span class="btn-theme-icon-wrapper">
+                                       <span class="btn-theme-icon">
+                                          <i class="fa fa-long-arrow-right"></i>    
+                                       </span>
+                                    </span>
+                                 </a>
+                              <?php } ?>
+                           </div>
+                        <?php } ?>
                      </div>
                   </div>
                </div>
             </div>
-         <?php } ?>     
-      </div>
+         </div>
+      <?php } ?>     
+   </div>
 
-      <!-- mobile -->
-      <?php if($s_h_call_booking){ ?>
-        <?php if(!empty($phone)){ ?>
-           <div class="phone-call">
-              <a href="tel:<?php echo esc_html($phone); ?>">
-                 <div class="hg-icon d-flex justify-content-center align-items-center">
-                    <?php if(!empty($phone_icon)){ ?>
-                       <i class="fa <?php echo esc_html($phone_icon); ?>"></i>
-                    <?php } ?>
-                 </div>
-                 <div class="number"><span><?php echo esc_html($phone); ?></span> <br><?php echo esc_html($phone_text); ?></div>
-              </a>
-           </div>
-        <?php } ?>
+   <!-- mobile -->
+   <?php if($s_h_call_booking){ ?>
+     <?php if(!empty($phone)){ ?>
+        <div class="phone-call">
+           <a href="tel:<?php echo esc_html($phone); ?>">
+              <div class="hg-icon d-flex justify-content-center align-items-center">
+                 <?php if(!empty($phone_icon)){ ?>
+                    <i class="fa <?php echo esc_html($phone_icon); ?>"></i>
+                 <?php } ?>
+              </div>
+              <div class="number"><span><?php echo esc_html($phone); ?></span> <br><?php echo esc_html($phone_text); ?></div>
+           </a>
+        </div>
      <?php } ?>
+  <?php } ?>
 
 
-  </section>
+</section>
 
-  <?php
-  if($s_h_room_search){ 
-     require WEBDZIER_COMPANION_PLUGIN_DIR . 'inc/hotelgalaxy/sections/section-roomsearch.php';
-  }else{ ?> <div style="margin-bottom:5rem;"></div><?php }  
+<?php
+if($s_h_room_search){ 
+  require WEBDZIER_COMPANION_PLUGIN_DIR . 'inc/hotelgalaxy/sections/section-roomsearch.php';
+}else{ ?> <div style="margin-bottom:5rem;"></div><?php }  
 }
 endif;
 if ( function_exists( 'webdzier_hotelgalaxy_slider' ) ) {

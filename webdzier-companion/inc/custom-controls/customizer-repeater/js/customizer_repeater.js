@@ -12,21 +12,21 @@ function hotelgalaxy_media_upload(button_class) {
             if (_custom_media) {
                 if (typeof display_field !== 'undefined') {
                     switch (props.size) {
-                        case 'full':
-                            display_field.val(attachment.sizes.full.url);
-                            display_field.trigger('change');
-                            break;
-                        case 'medium':
-                            display_field.val(attachment.sizes.medium.url);
-                            display_field.trigger('change');
-                            break;
-                        case 'thumbnail':
-                            display_field.val(attachment.sizes.thumbnail.url);
-                            display_field.trigger('change');
-                            break;
-                        default:
-                            display_field.val(attachment.url);
-                            display_field.trigger('change');
+                    case 'full':
+                        display_field.val(attachment.sizes.full.url);
+                        display_field.trigger('change');
+                        break;
+                    case 'medium':
+                        display_field.val(attachment.sizes.medium.url);
+                        display_field.trigger('change');
+                        break;
+                    case 'thumbnail':
+                        display_field.val(attachment.sizes.thumbnail.url);
+                        display_field.trigger('change');
+                        break;
+                    default:
+                        display_field.val(attachment.url);
+                        display_field.trigger('change');
                     }
                 }
                 _custom_media = false;
@@ -61,7 +61,7 @@ function hotelgalaxy_customizer_repeater_uniqid(prefix, more_entropy) {
         }
         if (reqWidth > seed.length) { // so short we pad
             return new Array(1 + (reqWidth - seed.length))
-                .join('0') + seed;
+            .join('0') + seed;
         }
         return seed;
     };
@@ -83,8 +83,8 @@ function hotelgalaxy_customizer_repeater_uniqid(prefix, more_entropy) {
     if (more_entropy) {
         // for more entropy we add a float lower to 10
         retId += (Math.random() * 10)
-            .toFixed(8)
-            .toString();
+        .toFixed(8)
+        .toString();
     }
 
     return retId;
@@ -259,7 +259,7 @@ jQuery(document).ready(function () {
         var split_add_more_button_split=split_add_more_button.substr(4, 12);
         var th = jQuery(this).parent();
         var id = 'customizer-repeater-' + hotelgalaxy_customizer_repeater_uniqid();
-        
+
         if (typeof th !== 'undefined') {
             /* Clone the first box*/
             var field = th.find('.customizer-repeater-general-control-repeater-container:first').clone( true, true );
@@ -300,25 +300,25 @@ jQuery(document).ready(function () {
 
                 /*Remove value from text field*/
                 field.find('.customizer-repeater-text2-control').val('');
-                
+
                 /*Remove value from button field*/
                 field.find('.customizer-repeater-button2-control').val('');
-                
+
                 /*Remove value from link field*/
                 field.find('.customizer-repeater-link2-control').val('');
-                
+
                  /*Remove value from link field*/
                 field.find('.customizer-repeater-link3-control').val('');
 
                 /*Remove value from link field*/
                 field.find('.customizer-repeater-video-control').val('');
-                
+
                 /*Set the default value in slide align*/
                 field.find('.customizer-repeater-slide-align').val('left');
-                
+
                 /*Set the default value in checkbox*/
                 field.find('.customizer-repeater-checkbox').val('');
-                
+
                 /*Set box id*/
                 field.find('.social-repeater-box-id').val(id);
 
@@ -348,8 +348,8 @@ jQuery(document).ready(function () {
 
                 /*Remove value from subtitle field*/
                 field.find('.customizer-repeater-subtitle2-control').val('');
-                
-                
+
+
                 /*Remove value from subtitle field*/
                 field.find('.customizer-repeater-btn3-control').val('');
 
@@ -367,133 +367,131 @@ jQuery(document).ready(function () {
         return false;
     });
 
-
-    hotelgalaxy_theme_controls.on('click', '.social-repeater-general-control-remove-field', function () {
-        var split_delete_button=jQuery(this).text();
-        var split_delete_button_split=split_delete_button.substr(8, 12);
-        if (typeof    jQuery(this).parent() !== 'undefined') {
-            jQuery(this).parent().hide(500, function(){
-                jQuery(this).parent().remove();
-                hotelgalaxy_customizer_repeater_refresh_general_control_values();
-                
-            });
-        }
-        return false;
-    });
+hotelgalaxy_theme_controls.on('click', '.social-repeater-general-control-remove-field', function () {
+    var split_delete_button=jQuery(this).text();
+    var split_delete_button_split=split_delete_button.substr(8, 12);
+    if (typeof    jQuery(this).parent() !== 'undefined') {
+        jQuery(this).parent().hide(500, function(){
+            jQuery(this).parent().remove();
+            hotelgalaxy_customizer_repeater_refresh_general_control_values();
+        });
+    }
+    return false;
+});
 
 
-    hotelgalaxy_theme_controls.on('keyup', '.customizer-repeater-number-control', function () {
-        hotelgalaxy_customizer_repeater_refresh_general_control_values();
-    });
+hotelgalaxy_theme_controls.on('keyup', '.customizer-repeater-number-control', function () {
+    hotelgalaxy_customizer_repeater_refresh_general_control_values();
+});
 
-    hotelgalaxy_theme_controls.on('keyup', '.customizer-repeater-title-control', function () {
-        hotelgalaxy_customizer_repeater_refresh_general_control_values();
-    });
+hotelgalaxy_theme_controls.on('keyup', '.customizer-repeater-title-control', function () {
+    hotelgalaxy_customizer_repeater_refresh_general_control_values();
+});
 
-    jQuery('input.customizer-repeater-color-control').wpColorPicker(color_options);
-    jQuery('input.customizer-repeater-color2-control').wpColorPicker(color_options);
+jQuery('input.customizer-repeater-color-control').wpColorPicker(color_options);
+jQuery('input.customizer-repeater-color2-control').wpColorPicker(color_options);
 
-    hotelgalaxy_theme_controls.on('keyup', '.customizer-repeater-subtitle-control', function () {
-        hotelgalaxy_customizer_repeater_refresh_general_control_values();
-    });
+hotelgalaxy_theme_controls.on('keyup', '.customizer-repeater-subtitle-control', function () {
+    hotelgalaxy_customizer_repeater_refresh_general_control_values();
+});
 
-    hotelgalaxy_theme_controls.on('keyup', '.customizer-repeater-subtitle2-control', function () {
-        hotelgalaxy_customizer_repeater_refresh_general_control_values();
-    });
-    
-     hotelgalaxy_theme_controls.on('keyup', '.customizer-repeater-btn3-control', function () {
-        hotelgalaxy_customizer_repeater_refresh_general_control_values();
-    });
-    
+hotelgalaxy_theme_controls.on('keyup', '.customizer-repeater-subtitle2-control', function () {
+    hotelgalaxy_customizer_repeater_refresh_general_control_values();
+});
 
-    hotelgalaxy_theme_controls.on('keyup', '.customizer-repeater-shortcode-control', function () {
-        hotelgalaxy_customizer_repeater_refresh_general_control_values();
-    });
+hotelgalaxy_theme_controls.on('keyup', '.customizer-repeater-btn3-control', function () {
+    hotelgalaxy_customizer_repeater_refresh_general_control_values();
+});
 
-    hotelgalaxy_theme_controls.on('keyup', '.customizer-repeater-text-control', function () {
-        hotelgalaxy_customizer_repeater_refresh_general_control_values();
-    });
 
-    hotelgalaxy_theme_controls.on('keyup', '.customizer-repeater-link-control', function () {
-        hotelgalaxy_customizer_repeater_refresh_general_control_values();
-    });
+hotelgalaxy_theme_controls.on('keyup', '.customizer-repeater-shortcode-control', function () {
+    hotelgalaxy_customizer_repeater_refresh_general_control_values();
+});
 
-    hotelgalaxy_theme_controls.on('keyup', '.customizer-repeater-text2-control', function () {
-        hotelgalaxy_customizer_repeater_refresh_general_control_values();
-    });
-    
-    hotelgalaxy_theme_controls.on('keyup', '.customizer-repeater-button2-control', function () {
-        hotelgalaxy_customizer_repeater_refresh_general_control_values();
-    });
+hotelgalaxy_theme_controls.on('keyup', '.customizer-repeater-text-control', function () {
+    hotelgalaxy_customizer_repeater_refresh_general_control_values();
+});
 
-    hotelgalaxy_theme_controls.on('keyup', '.customizer-repeater-link2-control', function () {
-        hotelgalaxy_customizer_repeater_refresh_general_control_values();
-    });
-    
-     hotelgalaxy_theme_controls.on('keyup', '.customizer-repeater-link3-control', function () {
-        hotelgalaxy_customizer_repeater_refresh_general_control_values();
-    });
+hotelgalaxy_theme_controls.on('keyup', '.customizer-repeater-link-control', function () {
+    hotelgalaxy_customizer_repeater_refresh_general_control_values();
+});
 
-     hotelgalaxy_theme_controls.on('keyup', '.customizer-repeater-video-control', function () {
-        hotelgalaxy_customizer_repeater_refresh_general_control_values();
-    });
-    
-    hotelgalaxy_theme_controls.on('change','.customizer-repeater-checkbox', function(){
-        
-        hotelgalaxy_customizer_repeater_refresh_general_control_values();
-    });
-    
+hotelgalaxy_theme_controls.on('keyup', '.customizer-repeater-text2-control', function () {
+    hotelgalaxy_customizer_repeater_refresh_general_control_values();
+});
+
+hotelgalaxy_theme_controls.on('keyup', '.customizer-repeater-button2-control', function () {
+    hotelgalaxy_customizer_repeater_refresh_general_control_values();
+});
+
+hotelgalaxy_theme_controls.on('keyup', '.customizer-repeater-link2-control', function () {
+    hotelgalaxy_customizer_repeater_refresh_general_control_values();
+});
+
+hotelgalaxy_theme_controls.on('keyup', '.customizer-repeater-link3-control', function () {
+    hotelgalaxy_customizer_repeater_refresh_general_control_values();
+});
+
+hotelgalaxy_theme_controls.on('keyup', '.customizer-repeater-video-control', function () {
+    hotelgalaxy_customizer_repeater_refresh_general_control_values();
+});
+
+hotelgalaxy_theme_controls.on('change','.customizer-repeater-checkbox', function(){
+
+    hotelgalaxy_customizer_repeater_refresh_general_control_values();
+});
+
     /*Drag and drop to change icons order*/
 
-    jQuery('.customizer-repeater-general-control-droppable').sortable({
-        axis: 'y',
-        update: function () {
-            hotelgalaxy_customizer_repeater_refresh_general_control_values();
-        }
-    });
+jQuery('.customizer-repeater-general-control-droppable').sortable({
+    axis: 'y',
+    update: function () {
+        hotelgalaxy_customizer_repeater_refresh_general_control_values();
+    }
+});
 
 
     /*----------------- Socials Repeater ---------------------*/
-    hotelgalaxy_theme_controls.on('click', '.social-repeater-add-social-item', function (event) {
-        event.preventDefault();
-        var th = jQuery(this).parent();
-        var id = 'customizer-repeater-social-repeater-' + hotelgalaxy_customizer_repeater_uniqid();
-        if (typeof th !== 'undefined') {
-            var field = th.find('.customizer-repeater-social-repeater-container:first').clone( true, true );
-            if (typeof field !== 'undefined') {
-                field.find( '.icp' ).val('');
-                field.find( '.input-group-addon' ).find('.fa').attr('class','fa');
-                field.find('.social-repeater-remove-social-item').show();
-                field.find('.customizer-repeater-social-repeater-link').val('');
-                field.find('.customizer-repeater-social-repeater-id').val(id);
-                th.find('.customizer-repeater-social-repeater-container:first').parent().append(field);
-            }
+hotelgalaxy_theme_controls.on('click', '.social-repeater-add-social-item', function (event) {
+    event.preventDefault();
+    var th = jQuery(this).parent();
+    var id = 'customizer-repeater-social-repeater-' + hotelgalaxy_customizer_repeater_uniqid();
+    if (typeof th !== 'undefined') {
+        var field = th.find('.customizer-repeater-social-repeater-container:first').clone( true, true );
+        if (typeof field !== 'undefined') {
+            field.find( '.icp' ).val('');
+            field.find( '.input-group-addon' ).find('.fa').attr('class','fa');
+            field.find('.social-repeater-remove-social-item').show();
+            field.find('.customizer-repeater-social-repeater-link').val('');
+            field.find('.customizer-repeater-social-repeater-id').val(id);
+            th.find('.customizer-repeater-social-repeater-container:first').parent().append(field);
         }
-        return false;
-    });
+    }
+    return false;
+});
 
-    hotelgalaxy_theme_controls.on('click', '.social-repeater-remove-social-item', function (event) {
-        event.preventDefault();
-        var th = jQuery(this).parent();
-        var repeater = jQuery(this).parent().parent();
-        th.remove();
-        hotelgalaxy_customizer_repeater_refresh_social_icons(repeater);
-        return false;
-    });
+hotelgalaxy_theme_controls.on('click', '.social-repeater-remove-social-item', function (event) {
+    event.preventDefault();
+    var th = jQuery(this).parent();
+    var repeater = jQuery(this).parent().parent();
+    th.remove();
+    hotelgalaxy_customizer_repeater_refresh_social_icons(repeater);
+    return false;
+});
 
-    hotelgalaxy_theme_controls.on('keyup', '.customizer-repeater-social-repeater-link', function (event) {
-        event.preventDefault();
-        var repeater = jQuery(this).parent().parent();
-        hotelgalaxy_customizer_repeater_refresh_social_icons(repeater);
-        return false;
-    });
+hotelgalaxy_theme_controls.on('keyup', '.customizer-repeater-social-repeater-link', function (event) {
+    event.preventDefault();
+    var repeater = jQuery(this).parent().parent();
+    hotelgalaxy_customizer_repeater_refresh_social_icons(repeater);
+    return false;
+});
 
-    hotelgalaxy_theme_controls.on('change', '.customizer-repeater-social-repeater-container .icp', function (event) {
-        event.preventDefault();
-        var repeater = jQuery(this).parent().parent().parent();
-        hotelgalaxy_customizer_repeater_refresh_social_icons(repeater);
-        return false;
-    });
+hotelgalaxy_theme_controls.on('change', '.customizer-repeater-social-repeater-container .icp', function (event) {
+    event.preventDefault();
+    var repeater = jQuery(this).parent().parent().parent();
+    hotelgalaxy_customizer_repeater_refresh_social_icons(repeater);
+    return false;
+});
 
 });
 

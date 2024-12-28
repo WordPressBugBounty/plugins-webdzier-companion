@@ -106,31 +106,40 @@ function hotelgalaxy_get_slider_default() {
 
 // about contents 
 function hotelgalaxy_get_about_default() {
+	$current_theme = wp_get_theme();
+	if ($current_theme->get('Name') === 'HotelPress') {
+		$image_url_1 = WEBDZIER_COMPANION_PLUGIN_URL . 'inc/hotelpress/images/about/about-1.png';
+		$image_url_2 = WEBDZIER_COMPANION_PLUGIN_URL . 'inc/hotelpress/images/about/about-2.png';
+		$image_url_3 = WEBDZIER_COMPANION_PLUGIN_URL . 'inc/hotelpress/images/about/about-3.png';
+	} else {
+		$image_url_1 = WEBDZIER_COMPANION_PLUGIN_URL . 'inc/hotelgalaxy/images/about/about-1.png';
+		$image_url_2 = WEBDZIER_COMPANION_PLUGIN_URL . 'inc/hotelgalaxy/images/about/about-2.png';
+		$image_url_3 = WEBDZIER_COMPANION_PLUGIN_URL . 'inc/hotelgalaxy/images/about/about-3.png';
+	}
 	return apply_filters('hotelgalaxy_get_about_default', json_encode(
 		array(
 			array(					
-				'title'	  =>  esc_html__( 'Find What You Want', 'hotel-galaxy' ),
-				'text'	  =>  esc_html__( 'Excepteur sint occaecat cupidatat non', 'hotel-galaxy' ),
-				'image_url' => WEBDZIER_COMPANION_PLUGIN_URL . 'inc/hotelgalaxy/images/about/about-1.png',
-				'id'              => 'customizer_repeater_about_content_001',					
+				'title'	    =>  esc_html__( 'Find What You Want', 'hotel-galaxy' ),
+				'text'	    =>  esc_html__( 'Excepteur sint occaecat cupidatat non', 'hotel-galaxy' ),
+				'image_url' =>  esc_url($image_url_1),
+				'id'        => 'customizer_repeater_about_content_001',					
 			),
 			array(					
-				'title'	  =>  esc_html__( 'Easy Choose Your Place', 'hotel-galaxy' ),
-				'text'	  =>  esc_html__( 'Excepteur sint occaecat cupidatat non', 'hotel-galaxy' ),
-				'image_url' => WEBDZIER_COMPANION_PLUGIN_URL . 'inc/hotelgalaxy/images/about/about-2.png',
-				'id'              => 'customizer_repeater_about_content_001',					
+				'title'	    =>  esc_html__( 'Easy Choose Your Place', 'hotel-galaxy' ),
+				'text'	    =>  esc_html__( 'Excepteur sint occaecat cupidatat non', 'hotel-galaxy' ),
+				'image_url' =>  esc_url($image_url_2),
+				'id'        => 'customizer_repeater_about_content_001',					
 			),
 			array(					
 				'title'	  =>  esc_html__( 'Live Online Assistance', 'hotel-galaxy' ),
 				'text'	  =>  esc_html__( 'Excepteur sint occaecat cupidatat non', 'hotel-galaxy' ),
-				'image_url' => WEBDZIER_COMPANION_PLUGIN_URL . 'inc/hotelgalaxy/images/about/about-3.png',
-				'id'              => 'customizer_repeater_about_content_001',					
+				'image_url' => esc_url($image_url_3),
+				'id'        => 'customizer_repeater_about_content_001',					
 			),
 		)
 	)
 );
 }
-
 
 // service contents 
 function hotelgalaxy_get_service_contents() {

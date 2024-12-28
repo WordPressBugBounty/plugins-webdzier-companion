@@ -203,8 +203,8 @@ if(! function_exists('hotelgalaxy_slider_customizer')){
 		$wp_customize->add_control(	new Hotelgalaxy_Repeater( $wp_customize, 
 			'slider_contents', array(					
 				'label'   => esc_html__('Slider Contents','hotel-galaxy'),
-				'section' => 'slider_section',				
-				'item_name' => esc_html__( 'Item', 'hotel-galaxy' ),				
+				'section' => 'slider_section',			
+				'item_name' => esc_html__( 'Slider', 'hotel-galaxy' ),				
 				'customizer_repeater_image_control' => true,
 				'customizer_repeater_video_control' => false,
 				'customizer_repeater_number_control' => true,
@@ -232,8 +232,6 @@ if(! function_exists('hotelgalaxy_slider_customizer')){
 				'fallback_refresh' => true,
 			)
 		);	
-
-		
 	}
 
 }
